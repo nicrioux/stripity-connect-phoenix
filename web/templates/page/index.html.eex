@@ -1,0 +1,1 @@
+<a href="<%= stripe_connect_workflow_url() %>">Start connect workflow</a>

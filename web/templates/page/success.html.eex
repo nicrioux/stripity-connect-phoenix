@@ -1,0 +1,6 @@
+
+<table>
+    <tr>
+        <td>Access token obtained:</td><td><%= @api_key %></td>
+    </tr>
+</table>

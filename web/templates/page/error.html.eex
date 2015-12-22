@@ -1,0 +1,9 @@
+
+<table>
+    <tr>
+        <td>Error:</td><td><%= @error %></td>
+    </tr>
+    <tr>
+        <td>Error description:</td><td><%= @err_description %></td>
+    </tr>
+</table>
