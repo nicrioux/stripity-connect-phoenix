@@ -3,7 +3,9 @@
 This repo holds a bare-bones phoenix web application demonstrating the "Stripe Connect" feature of the elixir library [Stripity-Stripe](https://github.com/robconery/stripity-stripe).
 
 ## Platform Client ID
-The first piece of the integration is the configuration that holds the Stripe Connect platform client id.
+The first piece of the integrati
+on is the configuration that holds the Stripe Connect platform client id.
+You obtain the platform client id and configure the redirect url on your stripe account settings, "Connect" tab. Once there, grab the client_id and set the redirect_url to your platform url endpoint that will get called once the onboarding process is done with an authorization code that the stripity-stripe library will use to request an access token for the user who went through the onboarding process.
 
 Have a look in config/dev.exs:
 ```
@@ -34,6 +36,10 @@ Once the user has completed the onboarding process on the stripe platform,
 the stripe platform makes a call to your platform with the authorization code necessary to perform the oauth token request.
 
 ```
+from router.ex
+get "/stripeconnect", PageController, :oauth_callback
+...
+
 defmodule Connectdemo.PageController do
   use Connectdemo.Web, :controller
   ...
