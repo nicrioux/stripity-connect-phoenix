@@ -14,7 +14,9 @@ config :stripity_stripe, :platform_client_id, "YOUR PLATFORM CLIENT ID"
 
 this can also be supplied in an environment variable named STRIPE_PLATFORM_CLIENT_ID (See [config_or_env_platform_client_id](https://github.com/robconery/stripity-stripe/blob/master/lib/stripe.ex).
 
+
 ## Connect onboarding starting url
+
 [Stripe.Connect.generate_button_url csrf_token](https://github.com/robconery/stripity-stripe/blob/master/lib/stripe/connect.ex)
 
 This function generates the url necessary to send the user to the Stripe Connect onboarding process.
@@ -32,10 +34,14 @@ end
 ```
 
 ## Onboarding workflow return
+
 Once the user has completed the onboarding process on the stripe platform,
 the stripe platform makes a call to your platform with the authorization code necessary to perform the oauth token request.
 
 ```
+from your account connect tab, redirect uri field
+http://localhost:4000/stripeconnect
+...
 from router.ex
 get "/stripeconnect", PageController, :oauth_callback
 ...
